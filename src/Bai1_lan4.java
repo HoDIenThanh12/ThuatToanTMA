@@ -12,18 +12,20 @@ public class Bai1_lan4 {
         sc = new Scanner(System.in);
         k = sc.nextInt();
         int[] arr = new int[n];
+//        k = 8;
+//        int[] arr = {1,5,7,8,1,2,3,6,9,7};
         for (int i = 0; i < n; i++) {
             System.out.print("a[" + i + "]: ");
             arr[i] = sc.nextInt();
         }
-        Arrays.sort(arr);
-        for (int value : arr) {
-            if (map.containsKey(value)) {
-                map.put(value, map.get(value) + 1);
-            } else {
-                map.put(value, 1);
-            }
-        }
+//        Arrays.sort(arr);
+//        for (int value : arr) {
+//            if (map.containsKey(value)) {
+//                map.put(value, map.get(value) + 1);
+//            } else {
+//                map.put(value, 1);
+//            }
+//        }
         slution(arr, k);
     }
 
@@ -31,6 +33,11 @@ public class Bai1_lan4 {
         System.out.println("Output: ");
         for (int i = 0; i < arr.length; i++) {
 //          System.out.println("a[i]"+arr[i]);
+            if (map.containsKey(arr[i])) {
+                map.put(arr[i], map.get(arr[i]) + 1);
+            } else {
+                map.put(arr[i], 1);
+            }
             if (map.get(sum - arr[i]) != null && map.get(sum - arr[i]) >= 1 && map.get(arr[i]) >= 1) {
                 if (sum - arr[i] == arr[i]) {
                     if (map.get(sum - arr[i]) > 1) {
